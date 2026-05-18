@@ -1,0 +1,237 @@
+.section {
+  background: linear-gradient(180deg, #EFF6F1 0%, var(--clr-cream) 100%);
+}
+
+/* ─ Layout ─ */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ─ Info ─ */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  color: var(--clr-forest);
+  line-height: 1.25;
+}
+
+.desc {
+  font-size: 1rem;
+  color: var(--clr-muted);
+  line-height: 1.75;
+}
+
+/* ─ Contact Items ─ */
+.contactItems {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.contactItem {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.cIcon {
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.cLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--clr-muted);
+  margin-bottom: 2px;
+}
+
+.cValue {
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  font-weight: 500;
+}
+
+/* ─ Form Wrapper ─ */
+.formWrap {
+  background: white;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-md);
+}
+
+/* ─ Form ─ */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.optional {
+  font-weight: 400;
+  color: var(--clr-muted);
+}
+
+.field input,
+.field textarea {
+  padding: 12px 16px;
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--clr-text);
+  background: var(--clr-cream);
+  transition: var(--transition);
+  outline: none;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: var(--clr-sage);
+  background: white;
+  box-shadow: 0 0 0 3px rgba(44,95,74,0.1);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--clr-muted);
+  opacity: 0.7;
+}
+
+/* ─ Chips ─ */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.chip {
+  padding: 7px 14px;
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--clr-muted);
+  background: var(--clr-cream);
+  transition: var(--transition);
+}
+
+.chip:hover {
+  border-color: var(--clr-sage);
+  color: var(--clr-sage);
+  background: rgba(44,95,74,0.05);
+}
+
+.chipActive {
+  border-color: var(--clr-sage) !important;
+  background: rgba(44,95,74,0.1) !important;
+  color: var(--clr-sage) !important;
+  font-weight: 600 !important;
+}
+
+/* ─ Submit ─ */
+.submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 15px 28px;
+  background: var(--clr-sage);
+  color: white;
+  border-radius: var(--radius-full);
+  font-size: 0.95rem;
+  font-weight: 600;
+  transition: var(--transition);
+  box-shadow: 0 6px 24px rgba(44,95,74,0.3);
+  width: 100%;
+}
+
+.submit:hover {
+  background: var(--clr-forest);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(44,95,74,0.4);
+}
+
+/* ─ Success State ─ */
+.success {
+  text-align: center;
+  padding: 48px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.successIcon {
+  font-size: 3rem;
+}
+
+.success h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--clr-forest);
+}
+
+.success p {
+  font-size: 0.95rem;
+  color: var(--clr-muted);
+  line-height: 1.7;
+}
+
+/* ─ Responsive ─ */
+@media (max-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .row { grid-template-columns: 1fr; }
+  .formWrap { padding: 24px 18px; border-radius: var(--radius-lg); }
+  .submit { font-size: 0.9rem; padding: 14px 20px; }
+  .chips { gap: 6px; }
+  .chip { font-size: 0.75rem; padding: 6px 12px; }
+}

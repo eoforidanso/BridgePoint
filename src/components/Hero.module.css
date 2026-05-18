@@ -1,0 +1,321 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  background: var(--gradient-hero);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ─ Background Blobs ─ */
+.blob1, .blob2, .blob3 {
+  position: absolute;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: blob 10s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.blob1 {
+  width: 520px;
+  height: 520px;
+  background: rgba(232,149,109,0.15);
+  top: -120px;
+  right: -80px;
+  animation-delay: 0s;
+}
+
+.blob2 {
+  width: 380px;
+  height: 380px;
+  background: rgba(242,201,76,0.1);
+  bottom: 60px;
+  left: -60px;
+  animation-delay: 3s;
+}
+
+.blob3 {
+  width: 280px;
+  height: 280px;
+  background: rgba(74,140,111,0.18);
+  top: 50%;
+  left: 40%;
+  animation-delay: 6s;
+}
+
+/* ─ Inner Layout ─ */
+.inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  padding-top: 120px;
+  padding-bottom: 80px;
+}
+
+/* ─ Content ─ */
+.topBadge {
+  background: rgba(232,149,109,0.18) !important;
+  border-color: rgba(232,149,109,0.35) !important;
+  color: var(--clr-peach-light) !important;
+  margin-bottom: 24px;
+  animation: fadeUp 0.5s ease both;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: white;
+  margin-bottom: 24px;
+  animation: fadeUp 0.6s 0.1s ease both;
+}
+
+.highlight {
+  background: var(--gradient-peach);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline;
+}
+
+.sub {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.75);
+  max-width: 480px;
+  margin-bottom: 36px;
+  animation: fadeUp 0.6s 0.2s ease both;
+}
+
+/* ─ Actions ─ */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+  animation: fadeUp 0.6s 0.3s ease both;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  background: var(--clr-peach);
+  color: white;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  box-shadow: 0 6px 24px rgba(232,149,109,0.45);
+}
+
+.btnPrimary:hover {
+  background: #d47858;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(232,149,109,0.55);
+}
+
+.btnGhost {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 28px;
+  border: 1.5px solid rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.9);
+  border-radius: var(--radius-full);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  backdrop-filter: blur(8px);
+}
+
+.btnGhost:hover {
+  border-color: rgba(255,255,255,0.7);
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+/* ─ Stats ─ */
+.stats {
+  display: flex;
+  gap: 32px;
+  animation: fadeUp 0.6s 0.4s ease both;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.statVal {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--clr-gold);
+}
+
+.statLabel {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  font-weight: 400;
+}
+
+/* ─ Visual / Card Stack ─ */
+.visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.cardStack {
+  position: relative;
+  width: 300px;
+  height: 380px;
+}
+
+.floatCard {
+  position: absolute;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  width: 260px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  transition: transform var(--transition);
+}
+
+.floatCard:hover { transform: translateY(-4px) scale(1.02); }
+
+.cardTop {
+  top: 0;
+  left: 0;
+  animation: float 5s ease-in-out infinite;
+}
+
+.cardMid {
+  top: 110px;
+  left: 40px;
+  animation: float 5s 1.5s ease-in-out infinite;
+}
+
+.cardBot {
+  top: 220px;
+  left: 20px;
+  animation: float 5s 3s ease-in-out infinite;
+}
+
+.cardIcon {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.cardTitle {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: white;
+  margin-bottom: 4px;
+}
+
+.cardDesc {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+
+/* ─ Decorative Rings ─ */
+.ring, .ring2 {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255,255,255,0.1);
+  pointer-events: none;
+}
+
+.ring  { width: 380px; height: 380px; }
+.ring2 { width: 480px; height: 480px; border-color: rgba(232,149,109,0.12); }
+
+/* ─ Scroll Cue ─ */
+.scrollCue {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  z-index: 2;
+  animation: fadeIn 1s 1s ease both;
+}
+
+.scrollLine {
+  width: 1.5px;
+  height: 40px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.5));
+  animation: float 2s ease-in-out infinite;
+}
+
+.scrollText {
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ─ Responsive ─ */
+@media (max-width: 1024px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding-top: 110px;
+    padding-bottom: 60px;
+    text-align: center;
+  }
+
+  .sub { max-width: 100%; }
+
+  .actions { justify-content: center; }
+
+  .stats { justify-content: center; }
+
+  .visual { display: none; }
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding-top: 96px;
+    padding-bottom: 48px;
+    gap: 32px;
+  }
+
+  .actions {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .btnPrimary,
+  .btnGhost {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .stats {
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .topBadge { font-size: 0.68rem; }
+}
